@@ -40,7 +40,7 @@ stages:
                     azureSubscription: $(azureSubscription)
                     appType: 'webAppLinux'
                     appName: $(backendAppName)
-                    package: '$(Pipeline.Workspace)/buildPipeline/backend-drop'
+                    package: '$(Pipeline.Workspace)/buildPipeline/backend-drop/backend.zip'
                     runtimeStack: 'DOTNETCORE|8.0'
 
       # Job 2: Deploy Frontend
@@ -61,6 +61,6 @@ stages:
                     azureSubscription: $(azureSubscription)
                     appType: 'webAppLinux'
                     appName: $(frontendAppName)
-                    package: '$(Pipeline.Workspace)/buildPipeline/frontend-drop'
+                    package: '$(Pipeline.Workspace)/buildPipeline/frontend-drop/frontend.zip'
                     runtimeStack: 'NODE|22-lts'
                     startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
