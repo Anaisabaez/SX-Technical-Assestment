@@ -5,7 +5,7 @@ trigger:
       - main #To trigger the pipeline when a push is commited
 
 pool:
-  name: 'pool'
+  vmImage: 'ubuntu-latest'
 
 stages:
   # ─────────────────────────────────────────────────────

@@ -11,12 +11,12 @@ resources:
             - main
 
 pool:
-  name: 'pool'
+  vmImage: 'ubuntu-latest'
 
 variables:
-  azureSubscription: 'Your Service Connection'  #Service Connection to deploy resources in azure    
-  backendAppName: 'BE-AppService'   #Name of your backend appservice
-  frontendAppName: 'FE-AppService'   #Name of your frontend appservice
+  azureSubscription: 'azure-sc'  #Service Connection to deploy resources in azure    
+  backendAppName: 'app-backend-isabaez'   #Name of your backend appservice
+  frontendAppName: 'app-frontend-isabaez'   #Name of your frontend appservice
 
 stages:
   - stage: Deploy
@@ -62,5 +62,5 @@ stages:
                     appType: 'webAppLinux'
                     appName: $(frontendAppName)
                     package: '$(Pipeline.Workspace)/buildPipeline/frontend-drop'
-                    runtimeStack: 'NODE|20-lts'
+                    runtimeStack: 'NODE|22-lts'
                     startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
